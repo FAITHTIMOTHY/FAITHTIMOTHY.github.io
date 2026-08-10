@@ -1,6 +1,6 @@
-# faithtimothy.dev ⚡
+# faithtimothy ⚡
 
-[![Faith Timothy Portfolio](https://img.shields.io/badge/Portfolio-faithtimothy.dev-blueviolet?style=for-the-badge&logo=googlechrome&logoColor=white)](https://faithtimothy.dev/)
+[![Faith Timothy Portfolio](https://img.shields.io/badge/Portfolio-faithtimothy.github.io-blueviolet?style=for-the-badge&logo=googlechrome&logoColor=white)](https://faithtimothy.github.io/)
 [![GitHub FAITHTIMOTHY](https://img.shields.io/badge/GitHub-FAITHTIMOTHY-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FAITHTIMOTHY)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Faith%20Timothy-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/faith-timothy-76815b2b2/)
 
@@ -25,14 +25,14 @@ Crafted with modern HTML5, CSS3, and Vanilla JavaScript featuring Liquid Glassmo
 - **Frontend**: HTML5, CSS3 (Custom Design Tokens, Flexbox & Grid), Vanilla JavaScript (ES6+)
 - **Visual Effects**: HTML5 Canvas, CSS Animations & Glassmorphism
 - **Fonts & Icons**: Google Fonts (Outfit, Inter, JetBrains Mono) & FontAwesome Icons
-- **Deployment**: GitHub Pages / Custom Domain (`faithtimothy.dev`)
+- **Deployment**: GitHub Pages (`https://faithtimothy.github.io/`)
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-faithtimothy.dev/
+faithtimothy/
 ├── index.html        # Main landing page
 ├── 404.html          # Custom 404 error page
 ├── styles.css        # Core design system and glassmorphism styling
@@ -51,8 +51,8 @@ No complex build tools or bundlers required. To run locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/FAITHTIMOTHY/faithtimothy.git
-   cd faithtimothy
+   git clone https://github.com/FAITHTIMOTHY/FAITHTIMOTHY.github.io.git
+   cd FAITHTIMOTHY.github.io
    ```
 
 2. **Serve the project**:
@@ -69,7 +69,7 @@ No complex build tools or bundlers required. To run locally:
 
 ## 📬 Contact & Connect
 
-- **Website**: [faithtimothy.dev](https://faithtimothy.dev)
+- **Website**: [faithtimothy.github.io](https://faithtimothy.github.io)
 - **GitHub**: [@FAITHTIMOTHY](https://github.com/FAITHTIMOTHY)
 - **LinkedIn**: [Faith Timothy](https://www.linkedin.com/in/faith-timothy-76815b2b2/)
 - **X (Twitter)**: [@timzzthegreat](https://x.com/timzzthegreat)

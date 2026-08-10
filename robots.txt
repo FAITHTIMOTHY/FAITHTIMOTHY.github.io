@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://faithtimothy.dev/sitemap.xml
+Sitemap: https://faithtimothy.github.io/sitemap.xml
