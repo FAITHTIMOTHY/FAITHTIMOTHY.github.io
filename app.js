@@ -848,7 +848,6 @@ function openTerminalInspectorModal() {
     <span class="json-string">"JavaScript"</span>, <span class="json-string">"TypeScript"</span>,
     <span class="json-string">"Node.js"</span>, <span class="json-string">"Python"</span>
   ],
-  <span class="json-key">"design_ethos"</span>: <span class="json-string">"Liquid Glass Aesthetics"</span>,
   <span class="json-key">"open_for_hire"</span>: <span class="json-boolean">true</span>
 }
         </div>
@@ -883,7 +882,6 @@ function openTerminalInspectorModal() {
     "role": "Full-Stack Engineer & SysAdmin",
     "location": "Lagos, Nigeria (Remote / Worldwide)",
     "core_languages": ["JavaScript", "TypeScript", "Node.js", "Python"],
-    "design_ethos": "Liquid Glass Aesthetics",
     "open_for_hire": true
   }
 }`;
