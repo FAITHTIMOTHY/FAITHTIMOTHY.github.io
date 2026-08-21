@@ -380,6 +380,20 @@ const projectsData = {
     tech: ["HTML5", "CSS3", "Vanilla JS", "Responsive Design"],
     demoUrl: "https://lanifoundation.org/",
     githubUrl: "https://github.com/FAITHTIMOTHY/Lani-Foundation"
+  },
+  p7: {
+    title: "Neo Kasa — Spatial Design Studio & Architectural Monograph",
+    category: "Frontend UI",
+    description: "The official architectural portfolio and digital monograph for Nsikakabasi Essien, showcasing progressive, climate-adaptive spatial works across institutional, commercial, and residential typologies with interactive CAD/BIM case studies.",
+    features: [
+      "Interactive architectural case studies with high-resolution perspectives & blueprint hotspot pins",
+      "Technical CAD working drawing explorer & material specification breakdown",
+      "Dual light/dark architectural typography system with responsive layout",
+      "Direct client inquiries engine with FormSubmit background dispatch & WhatsApp quick-connect"
+    ],
+    tech: ["React 18", "Vite", "JavaScript", "CSS3", "Lucide Icons", "Liquid UI"],
+    demoUrl: "https://neokasa.netlify.app",
+    githubUrl: "https://github.com/FAITHTIMOTHY/Neokasa"
   }
 };
 
