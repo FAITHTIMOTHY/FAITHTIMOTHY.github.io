@@ -226,7 +226,7 @@ function initNavigationAndScroll() {
 }
 
 /* --------------------------------------------------------------------------
-   5. STATS COUNTER ANIMATION
+   5. STATS COUNTER ANIMATION & LIVE GITHUB INTEGRATION
    -------------------------------------------------------------------------- */
 function initStatsCounters() {
   const statNumbers = document.querySelectorAll('.stat-number');
@@ -242,6 +242,28 @@ function initStatsCounters() {
     yearsStat.textContent = '0';
   }
 
+  // Animation helper for smoothly rolling numbers
+  function runCounterAnimation(counter, fromVal, toVal) {
+    let current = fromVal;
+    const diff = toVal - fromVal;
+    if (diff === 0) {
+      counter.textContent = toVal + (toVal > 50 ? '+' : '');
+      return;
+    }
+    const step = Math.max(Math.ceil(Math.abs(diff) / 35), 1);
+    const direction = diff > 0 ? 1 : -1;
+
+    const timer = setInterval(() => {
+      current += step * direction;
+      if ((direction > 0 && current >= toVal) || (direction < 0 && current <= toVal)) {
+        counter.textContent = toVal + (toVal > 50 ? '+' : '');
+        clearInterval(timer);
+      } else {
+        counter.textContent = current;
+      }
+    }, 35);
+  }
+
   let animated = false;
 
   const observer = new IntersectionObserver((entries) => {
@@ -250,18 +272,7 @@ function initStatsCounters() {
         animated = true;
         statNumbers.forEach((counter) => {
           const target = parseInt(counter.getAttribute('data-target'), 10) || 0;
-          let current = 0;
-          const step = Math.max(Math.ceil(target / 40), 1);
-
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-              counter.textContent = target + (target > 50 ? '+' : '');
-              clearInterval(timer);
-            } else {
-              counter.textContent = current;
-            }
-          }, 35);
+          runCounterAnimation(counter, 0, target);
         });
       }
     });
@@ -269,6 +280,108 @@ function initStatsCounters() {
 
   const statsSection = document.querySelector('.stats-grid');
   if (statsSection) observer.observe(statsSection);
+
+  // Sync Live Data from GitHub API (with 2-Hour LocalStorage Cache & Graceful Fallback)
+  syncLiveGitHubMetrics((liveData) => {
+    const projectsStat = document.getElementById('stat-projects');
+    const commitsStat = document.getElementById('stat-commits');
+
+    if (projectsStat && liveData.projects) {
+      const oldTarget = parseInt(projectsStat.getAttribute('data-target'), 10) || 8;
+      const newTarget = Math.max(oldTarget, liveData.projects);
+      projectsStat.setAttribute('data-target', newTarget);
+      if (animated && newTarget !== oldTarget) {
+        runCounterAnimation(projectsStat, oldTarget, newTarget);
+      }
+    }
+
+    if (commitsStat && liveData.commits) {
+      const oldTarget = parseInt(commitsStat.getAttribute('data-target'), 10) || 150;
+      const newTarget = Math.max(oldTarget, liveData.commits);
+      commitsStat.setAttribute('data-target', newTarget);
+      if (animated && newTarget !== oldTarget) {
+        runCounterAnimation(commitsStat, oldTarget, newTarget);
+      }
+    }
+  });
+}
+
+/**
+ * Fetch and cache live GitHub project & commit volume
+ */
+async function syncLiveGitHubMetrics(onMetricsLoaded) {
+  const GITHUB_USERNAME = 'FAITHTIMOTHY';
+  const CACHE_KEY = 'faith_gh_metrics_v2';
+  const CACHE_TTL = 2 * 60 * 60 * 1000; // 2 hours
+
+  try {
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      if (Date.now() - parsed.timestamp < CACHE_TTL) {
+        if (typeof onMetricsLoaded === 'function') onMetricsLoaded(parsed);
+        return;
+      }
+    }
+  } catch (_) {}
+
+  try {
+    // 1. Fetch user profile for repo stats
+    const userRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+    if (!userRes.ok) return;
+    const userData = await userRes.json();
+
+    // 2. Fetch public repos
+    const reposRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=pushed`);
+    if (!reposRes.ok) return;
+    const repos = await reposRes.json();
+
+    if (!Array.isArray(repos)) return;
+
+    // 3. Count commits across repositories
+    let totalCommits = 0;
+    const commitPromises = repos.map(async (repo) => {
+      try {
+        const cRes = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits?per_page=1`);
+        if (!cRes.ok) return 0;
+        const link = cRes.headers.get('link');
+        if (link) {
+          const match = link.match(/page=(\d+)>;\s*rel="last"/);
+          if (match && match[1]) {
+            return parseInt(match[1], 10);
+          }
+        }
+        const data = await cRes.json();
+        return Array.isArray(data) ? data.length : 0;
+      } catch {
+        return 0;
+      }
+    });
+
+    const commitCounts = await Promise.allSettled(commitPromises);
+    commitCounts.forEach((res) => {
+      if (res.status === 'fulfilled' && typeof res.value === 'number') {
+        totalCommits += res.value;
+      }
+    });
+
+    // Ensure total commits is at least the baseline historical commits
+    const finalCommits = Math.max(150, totalCommits);
+    const finalProjects = Math.max(8, userData.public_repos || repos.length || 8);
+
+    const metricsData = {
+      timestamp: Date.now(),
+      projects: finalProjects,
+      commits: finalCommits
+    };
+
+    localStorage.setItem(CACHE_KEY, JSON.stringify(metricsData));
+    if (typeof onMetricsLoaded === 'function') {
+      onMetricsLoaded(metricsData);
+    }
+  } catch (err) {
+    console.debug('GitHub live metrics sync fallback to local baseline:', err);
+  }
 }
 
 /* --------------------------------------------------------------------------
