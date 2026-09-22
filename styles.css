@@ -307,101 +307,90 @@ ul {
 
 .header-dock {
   position: fixed;
-  top: 24px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 32px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90%, 1100px);
   z-index: 1000;
-  pointer-events: none;
 }
 
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  pointer-events: none;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
 }
 
-/* Standalone Words Nav Options */
+.brand-logo {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.5px;
+}
+
+.logo-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 16px;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  padding: 0;
-  pointer-events: auto;
+  gap: 6px;
+  background: var(--pill-bg);
+  padding: 4px;
+  border-radius: var(--radius-full);
 }
 
 .nav-link {
-  font-size: 0.92rem;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-muted);
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 6px 12px;
-  transition: color var(--transition-fast), font-weight var(--transition-fast);
-  white-space: nowrap;
-  text-decoration: none;
+  transition: all var(--transition-fast);
 }
 
 .nav-link:hover {
-  color: #ffffff;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  color: var(--text-main);
 }
 
 .nav-link.active {
-  color: #ffffff;
-  font-weight: 700;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  background: var(--pill-active-bg);
+  color: var(--text-main);
+  box-shadow: var(--pill-active-shadow);
+  font-weight: 600;
 }
 
-/* Mobile Action */
 .header-actions {
-  position: absolute;
-  right: 0;
   display: flex;
   align-items: center;
-  pointer-events: auto;
+  gap: 10px;
 }
 
-/* Mobile Menu Button - Standalone Island */
+/* Mobile Menu Button */
 .mobile-menu-btn {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
+  background: var(--pill-bg);
   color: var(--text-main);
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: transform var(--transition-spring), background var(--transition-fast), border-color var(--transition-fast);
-}
-
-.mobile-menu-btn:hover {
-  background: var(--glass-bg-hover);
-  border-color: rgba(168, 85, 247, 0.45);
-  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.25);
-  transform: scale(1.05);
 }
 
 /* --------------------------------------------------------------------------
@@ -1249,46 +1238,22 @@ footer {
   gap: 24px;
 }
 
-.preloader-badge {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 2.2rem;
-  letter-spacing: -0.5px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: preloaderPulse 1.4s ease-in-out infinite;
-}
-
-@keyframes preloaderPulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1.12);
-    opacity: 0.7;
-  }
-}
-
 .preloader-bar {
-  width: 140px;
+  width: 160px;
   height: 3px;
-  border-radius: 4px;
-  background: var(--glass-border);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
   overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
 .preloader-fill {
   width: 0%;
   height: 100%;
-  border-radius: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  animation: preloaderFill 1.8s ease-in-out forwards;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--cyan-accent), var(--primary), var(--secondary));
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+  animation: preloaderFill 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 @keyframes preloaderFill {
