@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
   <meta name="title" content="Faith Timothy">
   <meta name="description" content="Official portfolio of Faith Timothy, showcasing full-stack JavaScript applications, UI engineering, systems administration, and software design.">
   <meta name="keywords" content="Faith Timothy, Software Engineer, Full Stack Developer, JavaScript, Web Development, Portfolio">
-  <meta name="theme-color" content="#f5f7fa" id="meta-theme-color">
+  <meta name="theme-color" content="#000000" id="meta-theme-color">
 
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website">
@@ -25,8 +25,6 @@
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@timzzthegreat">
-  <meta name="twitter:creator" content="@timzzthegreat">
   <meta name="twitter:url" content="https://faithtimothy.github.io/">
   <meta name="twitter:title" content="Faith Timothy">
   <meta name="twitter:description" content="Crafting fluid, high-performance web applications with modern JavaScript and Liquid UI aesthetics.">
@@ -53,8 +51,7 @@
     "image": "https://faithtimothy.github.io/og-preview.png",
     "sameAs": [
       "https://github.com/FAITHTIMOTHY",
-      "https://www.linkedin.com/in/faith-timothy-76815b2b2/",
-      "https://x.com/timzzthegreat"
+      "https://www.linkedin.com/in/faith-timothy-76815b2b2/"
     ],
     "knowsAbout": [
       "JavaScript",
@@ -81,7 +78,7 @@
   <!-- Preloader Splash Screen -->
   <div class="preloader" id="preloader">
     <div class="preloader-inner">
-      <span class="preloader-badge">FT</span>
+      <span class="preloader-badge">faithtimothy</span>
       <div class="preloader-bar"><div class="preloader-fill"></div></div>
     </div>
   </div>
@@ -97,16 +94,13 @@
     <div class="liquid-orb orb-3"></div>
   </div>
 
-  <!-- Header & Floating Navigation Dock -->
+  <!-- Header & Floating Navigation Islands -->
   <header class="header-dock">
-    <nav class="nav-container glass-panel" id="main-nav">
-      <a href="#hero" class="brand-logo" id="brand-logo-link">
-        <span class="logo-badge">FT</span>
-        <span>faithtimothy</span>
-      </a>
+    <nav class="nav-container" id="main-nav">
+      <a href="#hero" class="brand-logo" id="brand-logo-link">faithtimothy</a>
 
-      <!-- Desktop Nav Links -->
-      <div class="nav-links">
+      <!-- Desktop Nav Links (Standalone Island) -->
+      <div class="nav-links" id="desktop-nav-links">
         <a href="#hero" class="nav-link active" id="nav-hero">Home</a>
         <a href="#about" class="nav-link" id="nav-about">About</a>
         <a href="#skills" class="nav-link" id="nav-skills">Skills</a>
@@ -117,14 +111,8 @@
         <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
       </div>
 
-      <!-- Action Buttons -->
+      <!-- Mobile Menu Trigger (Standalone Island) -->
       <div class="header-actions">
-        <!-- Theme Switch Button -->
-        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Light/Dark Theme" title="Switch Theme">
-          <i class="fa-solid fa-moon" id="theme-icon"></i>
-        </button>
-
-        <!-- Mobile Menu Trigger -->
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Drawer">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -136,10 +124,7 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <div class="drawer-content">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <div class="brand-logo">
-          <span class="logo-badge">FT</span>
-          <span>faithtimothy</span>
-        </div>
+        <div class="brand-logo">faithtimothy</div>
         <button class="modal-close-btn" id="drawer-close-btn"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
@@ -188,9 +173,6 @@
           </a>
           <a href="https://www.linkedin.com/in/faith-timothy-76815b2b2/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn Profile" id="social-linkedin">
             <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a href="https://x.com/timzzthegreat" target="_blank" rel="noopener" class="social-icon" aria-label="X Profile" id="social-x">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
           <a href="mailto:faithtimo2006@gmail.com" class="social-icon" aria-label="Send Email" id="social-email">
             <i class="fa-regular fa-envelope"></i>
@@ -779,9 +761,6 @@
         </a>
         <a href="https://www.linkedin.com/in/faith-timothy-76815b2b2/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" id="footer-linkedin">
           <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-        <a href="https://x.com/timzzthegreat" target="_blank" rel="noopener" class="social-icon" aria-label="X" id="footer-x">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
         <a href="mailto:faithtimo2006@gmail.com" class="social-icon" aria-label="Email" id="footer-email">
           <i class="fa-regular fa-envelope"></i>

@@ -28,33 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   1. THEME ENGINE (DEFAULT: LIGHT MODE)
+   1. THEME ENGINE (PERMANENT DARK THEME)
    -------------------------------------------------------------------------- */
 function initThemeEngine() {
-  const themeBtn = document.getElementById('theme-toggle-btn');
-  const themeIcon = document.getElementById('theme-icon');
+  document.documentElement.setAttribute('data-theme', 'dark');
   const metaThemeColor = document.getElementById('meta-theme-color');
+  if (metaThemeColor) metaThemeColor.setAttribute('content', '#000000');
+  localStorage.setItem('faithtimothy_theme', 'dark');
+}
 
-  // Check stored theme preference or default to 'light'
-  const savedTheme = localStorage.getItem('faithtimothy_theme') || 'light';
-  applyTheme(savedTheme);
-
-  themeBtn.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(newTheme);
-    localStorage.setItem('faithtimothy_theme', newTheme);
-  });
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    if (theme === 'dark') {
-      themeIcon.className = 'fa-solid fa-sun';
-      if (metaThemeColor) metaThemeColor.setAttribute('content', '#000000');
-    } else {
-      themeIcon.className = 'fa-solid fa-moon';
-      if (metaThemeColor) metaThemeColor.setAttribute('content', '#f5f7fa');
-    }
+function initDynamicFooterYear() {
+  const footerYearP = document.querySelector('.footer-left p');
+  if (footerYearP) {
+    const currentYear = new Date().getFullYear();
+    footerYearP.textContent = `© ${currentYear} Faith Timothy. All rights reserved.`;
   }
 }
 
@@ -98,9 +85,8 @@ function initLiquidCanvas() {
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const nodeColor = isDark ? 'rgba(148, 163, 184, 0.25)' : 'rgba(99, 102, 241, 0.2)';
-    const lineColor = isDark ? 'rgba(99, 102, 241, 0.08)' : 'rgba(168, 85, 247, 0.08)';
+    const nodeColor = 'rgba(148, 163, 184, 0.25)';
+    const lineColor = 'rgba(99, 102, 241, 0.08)';
 
     particles.forEach((p, idx) => {
       p.x += p.vx;
@@ -222,6 +208,14 @@ function initNavigationAndScroll() {
         }
       });
     }
+  });
+
+  // Instant active state on click
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.forEach((l) => l.classList.remove('active'));
+      link.classList.add('active');
+    });
   });
 }
 

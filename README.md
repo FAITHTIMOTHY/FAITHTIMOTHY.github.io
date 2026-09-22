@@ -6,14 +6,14 @@
 
 The official personal portfolio website of **Faith Timothy** — Full-Stack Software Engineer & Systems Administrator based in Lagos, Nigeria.
 
-Crafted with modern HTML5, CSS3, and Vanilla JavaScript featuring Liquid Glassmorphism design aesthetics, interactive canvas background, theme switcher, smooth animations, and responsive UI.
+Crafted with modern HTML5, CSS3, and Vanilla JavaScript featuring Liquid Glassmorphism design aesthetics, interactive canvas background, smooth animations, and responsive UI.
 
 ---
 
 ## ✨ Features
 
 - **🎨 Liquid Glassmorphism UI**: Dynamic ambient background canvas with floating liquid orbs and frosted glass cards.
-- **🌙 Light & Dark Theme**: Seamless toggle between dark and light themes with preference persistence.
+- **🌑 Lights Out Dark Aesthetic**: Sleek pitch-dark aesthetic with vibrant glassmorphic accents.
 - **🚀 Featured Projects**: Highlighting full-stack applications, scrapers, automation bots, and corporate platforms.
 - **⚡ Performance & SEO Optimized**: Complete Open Graph tags, Twitter Cards, dynamic sitemap, 404 page, and JSON-LD structured data.
 - **📱 Fully Responsive**: Tailored layout for mobile, tablet, desktop, and ultra-wide displays.
@@ -72,7 +72,6 @@ No complex build tools or bundlers required. To run locally:
 - **Website**: [faithtimothy.github.io](https://faithtimothy.github.io)
 - **GitHub**: [@FAITHTIMOTHY](https://github.com/FAITHTIMOTHY)
 - **LinkedIn**: [Faith Timothy](https://www.linkedin.com/in/faith-timothy-76815b2b2/)
-- **X (Twitter)**: [@timzzthegreat](https://x.com/timzzthegreat)
 
 ---
 

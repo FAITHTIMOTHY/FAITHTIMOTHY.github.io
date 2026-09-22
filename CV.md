@@ -1,7 +1,7 @@
 # FAITH TIMOTHY
 **Full-Stack Software Engineer | Systems Administrator | UI/UX Designer**  
 Lagos, Nigeria | +234 813 255 2700 | faithtimo2006@gmail.com  
-[Portfolio](https://faithtimothy.github.io/) | [GitHub](https://github.com/FAITHTIMOTHY) | [LinkedIn](https://www.linkedin.com/in/faith-timothy-76815b2b2/) | [Twitter/X](https://x.com/timzzthegreat)
+[Portfolio](https://faithtimothy.github.io/) | [GitHub](https://github.com/FAITHTIMOTHY) | [LinkedIn](https://www.linkedin.com/in/faith-timothy-76815b2b2/)
 
 ---
 
