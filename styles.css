@@ -321,41 +321,14 @@ ul {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
   width: 100%;
   pointer-events: none;
 }
 
-/* 1. Standalone Brand Logo */
-.brand-logo {
-  font-size: 1.15rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  letter-spacing: -0.4px;
-  padding: 6px 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  color: var(--text-main);
-  pointer-events: auto;
-  transition: transform var(--transition-fast), opacity var(--transition-fast);
-  text-decoration: none;
-}
-
-.brand-logo:hover {
-  opacity: 0.85;
-  transform: translateY(-1px);
-}
-
-/* 2. Standalone Words Nav Options */
+/* Standalone Words Nav Options */
 .nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 16px;
@@ -396,8 +369,10 @@ ul {
   box-shadow: none;
 }
 
-/* 3. Standalone Mobile Action Island */
+/* Mobile Action */
 .header-actions {
+  position: absolute;
+  right: 0;
   display: flex;
   align-items: center;
   pointer-events: auto;
